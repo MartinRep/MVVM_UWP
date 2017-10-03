@@ -1,6 +1,7 @@
 ﻿<Page
     x:Class="MVVM.MainPage"
     xmlns:viewModels="using:ViewModels"
+    xmlns:converters="using:Converters"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:MVVM"
@@ -8,6 +9,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
+    <Page.Resources>
+        <converters:ObjectExistsToVisible x:Key="ObjectExistsToVisible" />
+    </Page.Resources>
+    
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -24,7 +29,8 @@
             </ListView>
             <Button Content="Add" Click="{x:Bind Organization.Add}" Margin="5"/>
         </StackPanel>
-        <StackPanel Grid.Column="2" Orientation="Vertical">
+        <StackPanel Grid.Column="2" Orientation="Vertical"
+                    Visibility="{x:Bind Organization.SelectedPerson, Mode=OneWay, Converter={StaticResource ObjectExistsToVisible}}">
             <TextBox Text="{x:Bind Organization.SelectedPerson.Name, Mode=TwoWay,FallbackValue=''}" Margin="5" />
             <TextBox Text="{x:Bind Organization.SelectedPerson.Age, Mode=TwoWay,FallbackValue='0'}" Margin="5" />
             <Button Content="Delete" Click="{x:Bind Organization.Delete}" Margin="5"/>
