@@ -100,6 +100,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Organisation.cs" />
+    <Compile Include="ModelView\OrganizationViewModel.cs" />
+    <Compile Include="ModelView\PersonalViewModel.cs" />
+    <Compile Include="ModelView\ViewModelHelpers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
