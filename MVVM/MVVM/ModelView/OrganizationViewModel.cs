@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Collections.ObjectModel;
 using Models;
+
 namespace ViewModels
 {
     public class OrganizationViewModel : NotificationBase
